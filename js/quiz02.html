@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		var num = 1;
+		function backImg(){
+			if(num>1){
+				document.getElementById('img').src="resources/images/최근상품0"+(--num)+".jpg"
+			}
+		}
+		function nextImg(){
+			if(num<8){
+				document.getElementById('img').src="resources/images/최근상품0"+(++num)+".jpg"
+			}
+		}
+	</script>
+	<style type="text/css">
+		.buttons{ background-color: pink; width: 250px; height: 50px;}
+		.buttons .btn { margin-left: 50px; padding-top: 2px;}
+	</style>
+</head>
+<body>
+	<div>
+		<img id="img" src="resources/images/최근상품01.jpg" width="250" height="250"><br>
+		<div class="buttons">
+			<div class="btn">
+				<input type="button" onclick="backImg()" value="이전사진">
+				<input type="button" onclick="nextImg()" value="다음사진">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
