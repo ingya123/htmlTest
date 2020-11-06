@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#box{
+		margin-left:100px;
+		margin-top:50px;
+		width: 100px; height: 100px;;
+	}
+	#box.b1{background-color: skyblue; }
+	#box.b2{background-color: green; }
+	#box.b3{background-color: pink; }
+	#box.b4{background-color: red; }
+</style>
+<script type="text/javascript">
+	function init(){
+		btn1 = document.getElementById('btn1')
+		btn2 = document.getElementById('btn2')
+		btn3 = document.getElementById('btn3')
+		btn4 = document.getElementById('btn4')
+		btn5 = document.getElementById('btn5')
+		
+		btn1.addEventListener('click',button)
+		btn2.addEventListener('click',button)
+		btn3.addEventListener('click',button)
+		btn4.addEventListener('click',loop)
+		btn5.addEventListener('click',remove)
+	}
+	function button(event){
+		switch(event.target.id){
+		case 'btn1' :
+			box = document.getElementById('box')
+			box.setAttribute('class','b1')
+			document.getElementById('in').innerHTML = "버튼 1 클릭"
+			break;
+		case 'btn2' :
+			box = document.getElementById('box')
+			box.setAttribute('class','b2')
+			document.getElementById('in').innerHTML = "버튼 2 클릭"
+			break;
+		case 'btn3' :
+			box = document.getElementById('box')
+			box.setAttribute('class','b3')
+			document.getElementById('in').innerHTML = "버튼 3 클릭"
+			break;
+		}	
+	}
+	function remove(){
+		remove = document.getElementById('box')
+		remove.removeAttribute('class')
+		document.getElementById('in').innerHTML = ""
+	}
+	var e;
+	function loop(){
+		box.setAttribute('class','b4')
+		document.getElementById('in').innerHTML = "버튼 4 클릭"
+		setTimeout('loop2',1000)
+	}
+	function loop2(){
+		remove()
+		setTimeout('loop',1000)
+	}
+	
+</script>
+</head>
+<body onload="init()">
+<input type="button" id="btn1" value="버튼 1">
+<input type="button" id="btn2" value="버튼 2">
+<input type="button" id="btn3" value="버튼 3">
+<input type="button" id="btn4" value="자동">
+<input type="button" id="btn5" value="지우기">
+<div id="box"><h3 id="in"></h3></div>
+</body>
+</html>

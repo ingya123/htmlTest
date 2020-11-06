@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.5.1.min.js"></script>
+<script src="jquery-1.12.1-ui.js"></script>
+<script type="text/javascript">
+	var hf=25
+	var f=16
+	
+	$(function(){
+		$("#remotecontrol").draggable()
+		$(".plus").click(function(){
+			hf++
+			f++;
+			$("#headtext").css({ "font-size":hf })
+			$("#text").css({ "font-size":f })
+		})
+		$(".minus").click(function(){
+			hf--
+			f--
+			$("#headtext").css({ "font-size":hf })
+			$("#text").css({ "font-size":f })
+			
+		})
+	})
+</script>
+<style type="text/css">
+	.drag{ display: flex; flex-flow: column;
+			width: 200px; height: 150px;
+			border-style: solid; margin-left: 400px;}
+	.remote{display: flex;
+				height: 20%; background-color: green;}
+	.remote h3{ padding-left: 66px; margin-top: 2px;}
+	font{font-weight: bold;}
+	
+</style>
+</head>
+<body>
+	<font id="headtext" size="5">오늘의 소설</font><br><br>
+	<div id="text">
+		<font>재혼 황후</font><br><br>
+		<font>라지나레나</font><br><br>
+		<font>화산귀환</font>
+	</div>
+	<div id="remotecontrol" class="drag">
+		<div class="remote"><h3>리 모 콘</h3></div>
+		<div class="remotebutton">
+			<img class="plus" src="resources/images/add.png" width="50px" height="50px">
+			<img class="minus" src="resources/images/sub.jpg" width="50px" height="50px">
+		</div>
+	</div>
+
+</body>
+</html>

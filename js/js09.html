@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function myFocus(){
+		document.getElementById("pw").focus()
+	}
+	function chk(){
+		put = document.getElementById("inPut").value;
+		document.getElementById("outPut").value = put;
+		document.getElementById("inPut").value = "";
+	}
+	function goForward(){
+		window.history.forward()
+	}
+	function goBack(){
+		window.history.back()
+	}
+	
+	function myClick(){
+		alert("안녕하세요. 환영합니다")
+		var result = confirm("처음 방문 입니까?")
+		if(result){
+			document.getElementById("myclick").innerHTML=
+				"다시 방문해 주셔서 감사합니다"
+		}
+		
+	}
+	function popup(){
+		//window.open("https://cafe.naver.com/mabinogidsg/288876","_self")
+		window.open("popup.html","","width=500, height=500")
+		
+	}
+	function test(){
+		//fo.submit()
+		location.href="https://www.naver.com"
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="naver" onclick="location.href='https://www.naver.com'">
+	<form id="fo" action="popup.html">
+		이름<input type="text" name="n"><br>
+		주소<input type="text" name="a"><br>
+		<input type="submit" value="submit">
+		<input type="button" value="btn" onclick="test()">
+	</form>
+<hr>
+	<input type="button" onclick="popup()" value="팝업"><br>
+<hr>
+	<input type="button" onclick="myClick()"><br>
+	<p id="myclick"></p>
+<hr>
+	<a href="js01.html">다음 페이지</a><br>
+	<button type="button" onclick="goBack()">이전</button>
+	<button type="button" onclick="goForward()">다음</button>
+<hr>
+	<input type="text" id="inPut" onchange="chk()"><br>
+	<input type="text" id="outPut"><br>
+	<input type="text"><br>
+
+<hr>
+	<form>
+		<input type="text" minlength="3" maxlength="5" ><br>
+		<input type="text" id="pw"><br>
+		<input type="button" value="클릭" onclick="myFocus()">
+		<input type="submit" value="체크">
+	</form>
+</body>
+</html>

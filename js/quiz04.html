@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#wrab {
+	display: flex;
+	flex-flow: row;
+}
+
+#text {
+	background-color: red;
+	width: 90px;
+	height: 45px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#testwrab {
+	display: flex;
+	flex-flow: column;
+}
+#testwrab p{
+	display: flex;
+	flex-flow: column;
+}
+</style>
+</head>
+<body>
+	<div id="wrab">
+		<table border="1" align="center">
+			<tr>
+				<td><a href="#" id='img0' onclick="add(0)"></a></td>
+				<td><a href="#" id='img1' onclick="add(1)"></a></td>
+				<td><a href="#" id='img2' onclick="add(2)"></a></td>
+				<td><a href="#" id='img3' onclick="add(3)"></a></td>
+			</tr>
+			<tr>
+				<td><a href="#" id='img4' onclick="add(4)"></a></td>
+				<td><a href="#" id='img5' onclick="add(5)"></a></td>
+				<td><a href="#" id='img6' onclick="add(6)"></a></td>
+				<td><a href="#" id='img7' onclick="add(7)"></a></td>
+			</tr>
+		</table>
+		<div id="testwrab">
+			<div id="text">
+				목록이<br>없습니다
+			</div>
+			<p id="list"></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		checkImg=0;
+		tmp = []
+		imgs = ["resources/images/최근상품01.jpg","resources/images/최근상품02.jpg",
+			"resources/images/최근상품03.jpg","resources/images/최근상품04.jpg",
+			"resources/images/최근상품05.jpg","resources/images/최근상품06.jpg",
+			"resources/images/최근상품07.jpg","resources/images/최근상품08.jpg"]
+		var img
+		for(i=0;i<imgs.length;i++){
+			img = document.createElement('img')
+			img.setAttribute('src',imgs[i])
+			img.setAttribute('width',100)
+			img.setAttribute('height',100)
+			document.getElementById('img'+i).appendChild(img)
+		}
+		function add(num){
+			if(checkImg>=5){
+				document.getElementById('list').removeChild(tmp.shift())
+				img = document.createElement('img')
+				img.setAttribute('src',imgs[num])
+				img.setAttribute('width',100)
+				img.setAttribute('height',100)
+				tmp[4] = img
+				document.getElementById('list').appendChild(img)
+				console.log(checkImg)
+				checkImg++;
+				
+			}else{
+				document.getElementById('text').innerHTML = "최근 구경한<br>상품"
+				img = document.createElement('img')
+				img.setAttribute('src',imgs[num])
+				img.setAttribute('width',100)
+				img.setAttribute('height',100)
+				tmp[checkImg] = img
+				document.getElementById('list').appendChild(img)
+				document.getElementById('text').style.backgroundColor="green";
+				console.log(checkImg)
+				checkImg++;
+			}
+		}
+	</script>
+</body>
+</html>
